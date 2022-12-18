@@ -1,0 +1,24 @@
+        org  500
+start   ld#  r0,0
+        ld#  r5,1
+        ld#  r6,5
+        ld#  r7,200
+        ld#  r8,300
+loop    ldi  r1,r7
+        ldi  r2,r8
+        sub  r6,r5
+        mul  r1,r2
+        add  r0,r1
+        add  r7,r5
+        add  r8,r5
+        jz   r6,finish
+        jmp  loop
+finish  hlt
+vectorA 
+        word 120E0C10
+        byte FF
+vectorB 
+        byte 15
+        word 300A0B0D 
+        end
+
